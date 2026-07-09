@@ -1,17 +1,176 @@
-td, th {
+:root {
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-text: #1e293b;
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
+  --radius: 10px;
+}
+
+body {
+  background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 30%);
+  color: var(--color-text);
+  font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+}
+
+.container {
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+  max-width: 1100px;
+}
+
+h1 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary-dark);
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--color-muted);
+  margin-bottom: 2rem;
+}
+
+td,
+th {
   text-align: center !important;
   vertical-align: middle !important;
 }
 
+.table {
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+}
+
+.table thead th {
+  background-color: #f1f5f9;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom-width: 1px !important;
+}
+
+.search-bar {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto 2rem;
+}
+
 .input-group {
   margin: 20px 0;
+  gap: 0.5rem;
 }
 
-svg {
-  height: 150px;
+.input-group .form-control {
+  border-radius: var(--radius);
+  border-color: var(--color-border);
+  padding: 0.6rem 1rem;
 }
 
-td:first-of-type, td:first-of-type > div {
-  height: 200px;
-  width: 250px;
+.input-group .form-control:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.input-group .btn-secondary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  border-radius: var(--radius);
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.input-group .btn-secondary:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.suggestions {
+  position: absolute;
+  top: calc(100% - 20px);
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem;
+  z-index: 20;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.suggestions li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.55rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.suggestions li:hover,
+.suggestions li.active {
+  background-color: #eff6ff;
+}
+
+.suggestion-name {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.suggestion-meta {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+td:first-of-type,
+td:first-of-type > div {
+  height: auto;
+  width: auto;
+}
+
+.empty-state {
+  color: var(--color-muted);
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.alert-danger {
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+  border-radius: var(--radius);
+}
+
+.footer {
+  margin-top: 3rem;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer p + p {
+  margin-top: 0.35rem;
+}
+
+.footer a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }
